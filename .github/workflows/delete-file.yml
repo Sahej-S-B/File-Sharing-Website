@@ -1,0 +1,17 @@
+name: Delete File After Download
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Remove file
+        run: |
+          git rm <path_to_file>
+          git commit -m "Deleted file after download"
+          git push
